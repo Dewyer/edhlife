@@ -4,13 +4,11 @@ import BasicBackground from "../components/BasicBackground";
 import PresetManager from "../components/PresetManager";
 import BigTitle from "../components/BasicText";
 import BasicText from "../components/BasicText";
-import BasicButton from "../components/BasicButton";
 import { NavigationState, NavigationScreenProp, NavigationParams } from "react-navigation";
 
 export interface Props
 {
     navigation: NavigationScreenProp<NavigationState, NavigationParams>
-
 }
 
 export interface State
@@ -18,22 +16,14 @@ export interface State
 
 }
 
-export default class MainScreen extends React.Component<Props, State> {
+export default class LifeCounterScreen extends React.Component<Props, State> {
 
-    constructor(props:Props)
+    constructor(props: Props)
     {
         super(props);
-        this.goToLifeCounter = this.goToLifeCounter.bind(this);
-
-        this.state = 
-        {
-        }
-    }
-
-    goToLifeCounter()
-    {
-        console.log("asdasd");
-        //this.props.navigation.navigate("LifeCounter");
+        this.state =
+            {
+            }
     }
 
     render()
@@ -45,14 +35,9 @@ export default class MainScreen extends React.Component<Props, State> {
                 <View
                     style={styles.container}
                 >
-                    <BasicText size="large" style={{marginBottom:20}}>Edh Life Total</BasicText>
-                    <PresetManager />
+                    <BasicText size="large" style={{ marginBottom: 20 }}>Edh Life Total</BasicText>
 
-                    <BasicButton
-                        text={"Go"}
-                        style={{marginTop:10}}
-                        onPress={this.goToLifeCounter}
-                    />
+                    Life
                 </View>
             </BasicBackground>
         );
@@ -64,19 +49,19 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        flexDirection:"column",
-        padding:20,
-        width:"100%"
+        flexDirection: "column",
+        padding: 20,
+        width: "100%"
     },
     testText:
     {
-        color:"white",
-        fontFamily:"bold"
+        color: "white",
+        fontFamily: "bold"
     },
     box:
     {
-        backgroundColor:"white",
-        width:100,
-        height:100
+        backgroundColor: "white",
+        width: 100,
+        height: 100
     }
 });

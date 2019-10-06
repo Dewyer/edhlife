@@ -10,9 +10,11 @@ import { createStackNavigator } from 'react-navigation-stack';
 import { AppState } from './reducers';
 import BasicBackground from './components/BasicBackground';
 import LoadingScreen from './components/LoadinScreen';
+import LifeCounterScreen from './screens/LifeCounterScreen';
 
 var screens = {
 	Main: MainScreen,
+	LifeCounter:LifeCounterScreen
 };
 var AppNavigator = createAppContainer(createStackNavigator(screens, {
 	initialRouteName: "Main",
@@ -35,6 +37,13 @@ export default class App extends React.Component<Props, State>
 		isLoaded:false
 	}
 
+	constructor(props:Props)
+	{
+		super(props);
+		this.componentDidMount = this.componentDidMount.bind(this);
+
+	}
+
 	async componentDidMount()
 	{
 		await Font.loadAsync({
@@ -52,7 +61,7 @@ export default class App extends React.Component<Props, State>
 
 	
 	render() {
-		const appContent = this.state.isLoaded ? <AppNavigator /> : <LoadingScreen />
+		const appContent = this.state.isLoaded ? <AppNavigator /> : <LoadingScreen />;
 		return (
 			<Provider store={store}>
 				{appContent}

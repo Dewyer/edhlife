@@ -4,7 +4,7 @@ import BasicBackground from "./BasicBackground";
 
 export interface Props {
     style?:any,
-    size?:"normal"|"large"|"small"
+    size?:"normal"|"large"|"small",
 }
 
 export interface State {

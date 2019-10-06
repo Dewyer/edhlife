@@ -26,6 +26,7 @@
   "devDependencies": {
     "@types/react": "^16.8.23",
     "@types/react-native": "^0.60.15",
+    "@types/react-navigation": "^3.0.8",
     "babel-plugin-root-import": "^6.4.1",
     "babel-preset-expo": "^7.0.0",
     "typescript": "^3.4.5"
