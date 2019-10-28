@@ -4,6 +4,7 @@ import BasicBackground from "./BasicBackground";
 import PresetPicker from "./PresetPicker";
 import BasicText from "./BasicText";
 import IconButton from "./IconButton";
+import TitleSection from "./TitleSection";
 
 export interface Props {
 
@@ -24,19 +25,14 @@ export default class PresetManager extends React.Component<Props, State> {
 
 	render() {
 		return (
-			<View
-				style={styles.container}
+			<TitleSection
+				title={"Preset"}
 			>
-				<BasicText style={styles.topText}>Preset</BasicText>
-				<View
-					style={styles.managerContainer}
-				>
 					<PresetPicker />
 					<IconButton style={{marginLeft:20}} size={20} source={require("../assets/icons/add.png")}/>
 					<IconButton style={{ marginLeft: 20 }} size={20} source={require("../assets/icons/trash.png")} />
 
-				</View>
-			</View>
+			</TitleSection>
 		);
 	}
 }

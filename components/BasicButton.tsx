@@ -30,19 +30,24 @@ export default class BasicButton extends React.Component<Props, State> {
     render()
     {
         return (
-            <Button
-            /*
-                style={[
-                    styles.btn,
-                    {...this.props.size},
-                    { backgroundColor:this.props.backgroundColor},
-                    {...this.props.style}
-                ]}
-                //onPress={this.props.onPress}
-                onPressIn={this.props.onPress}*/
-                title="asd"
-                onPress={this.props.onPress}
-            />
+            <View
+                style={this.props.style}
+            >
+                <Button
+                /*
+                    style={[
+                        styles.btn,
+                        {...this.props.size},
+                        { backgroundColor:this.props.backgroundColor},
+                        {...this.props.style}
+                    ]}
+                    //onPress={this.props.onPress}
+                    onPressIn={this.props.onPress}*/
+                    title={this.props.text}
+                    onPress={this.props.onPress}
+                    color={this.props.backgroundColor}
+                />
+            </View>
 
         );
         //<BasicText style={{color:"white"}} size={"normal"}>{this.props.text}</BasicText>
@@ -67,6 +72,10 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: "center",
         alignItems: "center"
+    },
+    btnB:
+    {
+        backgroundColor:"#4ecca3"
     }
 
 });

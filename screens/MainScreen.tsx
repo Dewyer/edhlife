@@ -6,6 +6,7 @@ import BigTitle from "../components/BasicText";
 import BasicText from "../components/BasicText";
 import BasicButton from "../components/BasicButton";
 import { NavigationState, NavigationScreenProp, NavigationParams } from "react-navigation";
+import NumberOfPlayersManager from "../components/NumberOfPlayersManager";
 
 export interface Props
 {
@@ -47,10 +48,11 @@ export default class MainScreen extends React.Component<Props, State> {
                 >
                     <BasicText size="large" style={{marginBottom:20}}>Edh Life Total</BasicText>
                     <PresetManager />
+                    <NumberOfPlayersManager />
 
                     <BasicButton
                         text={"Go"}
-                        style={{marginTop:10}}
+                        style={{marginTop:20}}
                         onPress={this.goToLifeCounter}
                     />
                 </View>
