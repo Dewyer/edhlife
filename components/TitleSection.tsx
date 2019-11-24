@@ -8,7 +8,8 @@ import IconButton from "./IconButton";
 export interface Props
 {
     title:string,
-    style?:ViewStyle
+    style?:ViewStyle,
+    childrenStyles?:ViewStyle
 }
 
 export interface State
@@ -34,7 +35,7 @@ export default class TitleSection extends React.Component<Props, State> {
             >
                 <BasicText style={styles.topText}>{this.props.title}</BasicText>
                 <View
-                    style={styles.managerContainer}
+                    style={[styles.managerContainer, this.props.childrenStyles]}
                 >
                     {this.props.children}
 

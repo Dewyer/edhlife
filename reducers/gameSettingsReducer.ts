@@ -2,13 +2,15 @@
 import {
     AppActions,
 } from '../actions';
-import { AppState } from ".";
-import { PlayerPresetData } from '../models';
+import { EdhAppState } from ".";
+import { PlayerPresetData, getEmptyPlayerPresetData } from '../models/PlayerPresetData';
+import { handleActions } from 'redux-actions';
+import { GameSettingsActionTypes } from '../actions/gameSettings';
+import PlayerStateUtils from '../utils/playerStateUtils';
 
 
 export interface GameSettingsSate 
 {
-    numberOfPlayers: number,
     players: PlayerPresetData[],
     commanderDamage:boolean,
     startingLifeTotal:number,
@@ -17,14 +19,24 @@ export interface GameSettingsSate
 
 export function defaultGameSettingsState(): GameSettingsSate {
     return {
-        numberOfPlayers:0,
-        players:[],
+        players:[getEmptyPlayerPresetData()],
         commanderDamage: false,
         startingLifeTotal: 20,
     };
 }
 
-export function metadataStateReducer(state: AppState, action: AppActions): GameSettingsSate {
+export const gameSettingsReducer = handleActions<GameSettingsSate, unknown>(
+    {
+        [GameSettingsActionTypes.NEW_NUMBER_OF_PLAYERS]:(state,action)=>
+        {
+            const newPlayerNumber = action.payload as number;
+            const newPlayerPresets = PlayerStateUtils.getNewPlayerPresetsFromNewPlayerNumbers(state.players,newPlayerNumber);
+            return({
+                ...state,
+                players:newPlayerPresets
 
-    return state.gameSettingsSate;
-}
+            });
+        }
+    },
+    defaultGameSettingsState()
+);

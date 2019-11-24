@@ -7,7 +7,7 @@ import * as Font from 'expo-font';
 
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
-import { AppState } from './reducers';
+import { EdhAppState } from './reducers';
 import BasicBackground from './components/BasicBackground';
 import LoadingScreen from './components/LoadinScreen';
 import LifeCounterScreen from './screens/LifeCounterScreen';

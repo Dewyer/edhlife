@@ -1,23 +1,20 @@
 
-import { Action } from 'redux';
+import { Action, combineReducers } from 'redux';
 import { AppActions } from '../actions';
-import { GameSettingsSate, defaultGameSettingsState } from './gameSettingsReducer';
+import { GameSettingsSate, defaultGameSettingsState, gameSettingsReducer } from './gameSettingsReducer';
 
 
-export interface AppState {
-    isApplicationLoaded : boolean,
+export interface EdhAppState {
     gameSettingsSate:GameSettingsSate
 
 }
 
-export function defaultState(): AppState {
+export function defaultState(): EdhAppState {
     return {
-        isApplicationLoaded : false,
         gameSettingsSate: defaultGameSettingsState()
     };
 }
 
-export function mainReducer(state: AppState = defaultState(), action: Action): AppState {
-
-    return state;
-}
+export const rootReducer = combineReducers<EdhAppState>({
+    gameSettingsSate: gameSettingsReducer as any,
+});
