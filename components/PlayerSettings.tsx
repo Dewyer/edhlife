@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, ImageBackground, ActivityIndicator, Picker } fr
 import { PlayerPresetData } from "../models/PlayerPresetData";
 import InputWrapperWithLabel from "./InputWrapperWithLabel";
 import BasicTextInput from "./BasicTextInput";
+import BasicButton from "./BasicButton";
 
 export interface Props
 {
@@ -33,12 +34,18 @@ export default class PlayerSettings extends React.Component<Props, State>
             >
                 <InputWrapperWithLabel
                     title={"Name:"}
+                    childrenContainerStyle={{
+                        width:"70%",
+                        justifyContent:"flex-end"
+                    }}
                 >
                     <BasicTextInput
                         value={this.props.playerData.name}
                         onNewValue={()=>{}}
+                        style={{width:"100%"}}
                     />
                 </InputWrapperWithLabel>
+                <BasicButton text={"hg"} style={{marginTop:20,width:"20%"}}/>
             </View>
         );
     }
@@ -51,7 +58,10 @@ const styles = StyleSheet.create({
         padding: 20,
         borderRadius: 10,
         width:"100%",
-        marginBottom:20
+        marginBottom:20,
+        display:"flex",
+        justifyContent:"flex-start",
+        alignItems:"flex-end"
     }
 
 });

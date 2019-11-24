@@ -1,10 +1,11 @@
 import React from "react";
-import { StyleSheet, Text, View, ImageBackground, ActivityIndicator, Picker } from 'react-native';
+import { StyleSheet, Text, View, ImageBackground, ActivityIndicator, Picker, ViewStyle } from 'react-native';
 import { TextInput } from "react-native-gesture-handler";
 
 export interface Props {
     value?:string,
-    onNewValue:(newV:string)=>void
+    onNewValue:(newV:string)=>void,
+    style?:ViewStyle
 }
 
 export interface State {
@@ -25,7 +26,7 @@ export default class BasicTextInput extends React.Component<Props, State>
     render() {
         return (
             <TextInput
-                style={styles.container}
+                style={[styles.container, this.props.style]}
                 value={this.props.value}
                 onChangeText={this.props.onNewValue}
                 maxLength={100}
